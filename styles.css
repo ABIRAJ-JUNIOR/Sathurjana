@@ -467,8 +467,8 @@ body {
 }
 
 .scroll-arrow {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border: 2px solid var(--white);
     border-radius: 50%;
     display: flex;
@@ -477,6 +477,25 @@ body {
     color: var(--white);
     animation: bounce 2s infinite;
     cursor: pointer;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+    box-shadow: var(--glass-shadow);
+}
+
+.scroll-arrow:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+.scroll-arrow i {
+    font-size: 1.2rem;
+    transition: var(--transition-smooth);
+}
+
+.scroll-arrow:hover i {
+    transform: translateY(2px);
 }
 
 @keyframes bounce {

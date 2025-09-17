@@ -53,3 +53,4 @@ images/
 ```
 
 **Note**: The website is designed to work beautifully even without photos, so don't worry if you don't have all of them right now!
+

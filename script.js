@@ -33,6 +33,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Scroll indicator functionality
+const scrollIndicator = document.querySelector('.scroll-arrow');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', function() {
+        const messageSection = document.querySelector('.footer');
+        if (messageSection) {
+            const offsetTop = messageSection.offsetTop - 80; // Account for fixed navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
 // Enhanced floating hearts animation
 function createFloatingHeart() {
     const hearts = ['💖', '💕', '💗', '💝', '💘', '💞', '💓', '💟'];
@@ -387,7 +402,25 @@ document.addEventListener('keydown', (e) => {
         const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
         const nextSection = currentSection?.closest('section')?.nextElementSibling;
         if (nextSection) {
-            nextSection.scrollIntoView({ behavior: 'smooth' });
+            const offsetTop = nextSection.offsetTop - 80; // Account for fixed navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+});
+
+// Auto-hide scroll indicator when scrolled
+window.addEventListener('scroll', () => {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        if (window.pageYOffset > 100) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+        } else {
+            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.pointerEvents = 'auto';
         }
     }
 });
