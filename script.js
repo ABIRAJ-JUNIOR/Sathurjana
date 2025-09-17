@@ -48,26 +48,6 @@ if (scrollIndicator) {
     });
 }
 
-// Enhanced floating hearts animation
-function createFloatingHeart() {
-    const hearts = ['💖', '💕', '💗', '💝', '💘', '💞', '💓', '💟'];
-    const heart = document.createElement('div');
-    heart.className = 'floating-heart';
-    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
-    heart.style.opacity = Math.random() * 0.5 + 0.3;
-    heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
-    
-    document.querySelector('.floating-elements').appendChild(heart);
-    
-    setTimeout(() => {
-        heart.remove();
-    }, 20000);
-}
-
-// Create hearts periodically
-setInterval(createFloatingHeart, 3000);
 
 // Enhanced background shapes animation
 function animateShapes() {
@@ -445,25 +425,79 @@ window.addEventListener('scroll', requestTick);
 // Image loading and fallback handling
 function handleImageLoading() {
     const images = [
-        { src: 'images/siya-main.jpg', alt: 'Beautiful Siya', fallback: '.main-image .image-placeholder' },
-        { src: 'images/first-date.jpg', alt: 'First Date', fallback: '.memory-card:nth-child(1) .image-placeholder' },
-        { src: 'images/special-moment.jpg', alt: 'Special Moment', fallback: '.memory-card:nth-child(2) .image-placeholder' },
-        { src: 'images/adventure.jpg', alt: 'Adventure', fallback: '.memory-card:nth-child(3) .image-placeholder' },
-        { src: 'images/recent.jpg', alt: 'Recent Photo', fallback: '.memory-card:nth-child(4) .image-placeholder' }
+        { 
+            src: 'images/siya-main.png', 
+            alt: 'Beautiful Siya', 
+            fallback: '.main-image .image-placeholder',
+            actualImg: '.main-image .hero-photo'
+        },
+        { 
+            src: 'images/siya-main.png', 
+            alt: 'First Date', 
+            fallback: '.memory-card:nth-child(1) .image-placeholder',
+            actualImg: '.memory-card:nth-child(1) .memory-photo'
+        },
+        { 
+            src: 'images/siya-main.png', 
+            alt: 'Special Moment', 
+            fallback: '.memory-card:nth-child(2) .image-placeholder',
+            actualImg: '.memory-card:nth-child(2) .memory-photo'
+        },
+        { 
+            src: 'images/siya-main.png', 
+            alt: 'Adventure', 
+            fallback: '.memory-card:nth-child(3) .image-placeholder',
+            actualImg: '.memory-card:nth-child(3) .memory-photo'
+        },
+        { 
+            src: 'images/siya-main.png', 
+            alt: 'Recent Photo', 
+            fallback: '.memory-card:nth-child(4) .image-placeholder',
+            actualImg: '.memory-card:nth-child(4) .memory-photo'
+        }
     ];
 
     images.forEach(imageData => {
         const img = new Image();
+        
+        // Show placeholder initially
+        const fallback = document.querySelector(imageData.fallback);
+        const actualImg = document.querySelector(imageData.actualImg);
+        
+        if (fallback && actualImg) {
+            // Hide actual image and show placeholder while loading
+            actualImg.style.display = 'none';
+            fallback.style.display = 'flex';
+        }
+        
         img.onload = function() {
             console.log(`✅ Loaded: ${imageData.src}`);
-        };
-        img.onerror = function() {
-            console.log(`⚠️ Image not found: ${imageData.src} - Using placeholder`);
-            const fallback = document.querySelector(imageData.fallback);
-            if (fallback) {
-                fallback.style.display = 'flex';
+            // Hide placeholder and show actual image
+            if (fallback && actualImg) {
+                fallback.style.display = 'none';
+                actualImg.style.display = 'block';
+                actualImg.style.opacity = '0';
+                actualImg.style.transition = 'opacity 0.5s ease-in-out';
+                setTimeout(() => {
+                    actualImg.style.opacity = '1';
+                }, 100);
             }
         };
+        
+        img.onerror = function() {
+            console.log(`⚠️ Image not found: ${imageData.src} - Using placeholder`);
+            // Keep placeholder visible and hide actual image
+            if (fallback && actualImg) {
+                fallback.style.display = 'flex';
+                actualImg.style.display = 'none';
+                // Update placeholder text to show error
+                const placeholderText = fallback.querySelector('span');
+                if (placeholderText) {
+                    placeholderText.textContent = 'Image not available';
+                }
+            }
+        };
+        
         img.src = imageData.src;
     });
 }

@@ -139,80 +139,7 @@ body {
     }
 }
 
-/* Floating Hearts */
-.floating-elements {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
 
-.floating-heart {
-    position: absolute;
-    font-size: 20px;
-    animation: floatHeart 15s infinite linear;
-    opacity: 0.7;
-}
-
-.floating-heart:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.floating-heart:nth-child(2) {
-    left: 20%;
-    animation-delay: 2s;
-}
-
-.floating-heart:nth-child(3) {
-    left: 30%;
-    animation-delay: 4s;
-}
-
-.floating-heart:nth-child(4) {
-    left: 40%;
-    animation-delay: 6s;
-}
-
-.floating-heart:nth-child(5) {
-    left: 50%;
-    animation-delay: 8s;
-}
-
-.floating-heart:nth-child(6) {
-    left: 60%;
-    animation-delay: 10s;
-}
-
-.floating-heart:nth-child(7) {
-    left: 70%;
-    animation-delay: 12s;
-}
-
-.floating-heart:nth-child(8) {
-    left: 80%;
-    animation-delay: 14s;
-}
-
-@keyframes floatHeart {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.7;
-    }
-    90% {
-        opacity: 0.7;
-    }
-    100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-    }
-}
 
 /* Premium Navigation */
 .premium-nav {
@@ -621,57 +548,305 @@ body {
     margin-top: 10px;
 }
 
-/* Reasons Section */
+/* Enhanced Reasons Section */
 .reasons-section {
     padding: var(--section-padding);
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f0f2f5 100%);
+    position: relative;
+    overflow: hidden;
 }
 
+.reasons-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Section Header */
+.reasons-header {
+    position: relative;
+    z-index: 2;
+}
+
+.header-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.decoration-heart {
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+.decoration-line {
+    width: 60px;
+    height: 2px;
+    background: var(--gold-gradient);
+    border-radius: 2px;
+}
+
+.decoration-heart:nth-child(3) {
+    animation-delay: 1s;
+}
+
+
+/* Reasons Grid */
+.reasons-grid {
+    position: relative;
+    z-index: 2;
+}
+
+/* Enhanced Reason Cards */
 .reason-card {
     background: var(--white);
-    border-radius: 25px;
-    padding: 40px 30px;
-    text-align: center;
+    border-radius: 30px;
+    padding: 0;
+    text-align: left;
     box-shadow: var(--shadow-soft);
     transition: var(--transition-bounce);
     height: 100%;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.reason-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gold-gradient);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.reason-card:hover::before {
+    opacity: 1;
 }
 
 .reason-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
     box-shadow: var(--shadow-medium);
 }
 
-.card-icon {
-    width: 80px;
-    height: 80px;
+/* Featured Cards (Top 3) */
+.featured-card {
+    background: linear-gradient(135deg, var(--white) 0%, #fafbfc 100%);
+    border: 2px solid rgba(212, 175, 55, 0.1);
+}
+
+.featured-card::before {
     background: var(--rose-gradient);
-    border-radius: 50%;
+    height: 5px;
+}
+
+.featured-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Number */
+.card-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.featured-card .card-number {
+    color: var(--accent-rose);
+    opacity: 0.4;
+}
+
+/* Card Icon */
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--rose-gradient);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 25px;
-    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+    margin: 30px 30px 20px 30px;
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.25);
+    transition: var(--transition-smooth);
+}
+
+.featured-card .card-icon {
+    background: var(--gold-gradient);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    transform: scale(1.1);
+}
+
+.reason-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.featured-card:hover .card-icon {
+    transform: scale(1.2) rotate(10deg);
 }
 
 .card-icon i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--white);
+}
+
+/* Card Content */
+.card-content {
+    padding: 0 30px 30px 30px;
 }
 
 .reason-card h4 {
     font-family: var(--font-primary);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--charcoal);
     margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.featured-card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .reason-card p {
     color: var(--charcoal);
     opacity: 0.8;
     line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.featured-card p {
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+
+/* Love Quote Section */
+.love-quote {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 50px;
+    text-align: center;
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.love-quote::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+.quote-content {
+    position: relative;
+    z-index: 2;
+}
+
+.quote-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gold-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.quote-icon i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.love-quote blockquote {
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+    position: relative;
+}
+
+.quote-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.author-name {
+    font-family: var(--font-script);
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.author-heart {
+    font-size: 1.2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Memories Section */
@@ -986,77 +1161,419 @@ body {
     font-size: 0.95rem;
 }
 
-/* Wishes Section */
-.wishes-section {
+/* Background Section with Image and Overlay */
+.background-section {
     padding: var(--section-padding);
-    background: var(--premium-gradient);
+    background-image: url('images/siya-main.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
-.wishes-section::before {
-    content: '';
+.background-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 25%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 75%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    backdrop-filter: blur(1px);
 }
 
-.wishes-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    padding: 60px;
+.background-content {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    box-shadow: var(--glass-shadow);
+    color: white;
+}
+
+.background-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.background-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+}
+
+.background-signature {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.background-signature p {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.background-signature .signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Section Header */
+.wishes-section-header {
     position: relative;
     z-index: 2;
 }
 
-.wishes-header h2 {
+.header-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.ornament-line {
+    width: 80px;
+    height: 2px;
+    background: var(--gold-gradient);
+    border-radius: 2px;
+}
+
+.ornament-heart {
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+}
+
+/* Wishes Container */
+.wishes-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Birthday Greeting Card */
+.birthday-greeting-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    padding: 0;
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.birthday-greeting-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gold-gradient);
+}
+
+/* Greeting Header */
+.greeting-header {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    padding: 50px 40px 40px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.birthday-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gold-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+.birthday-icon i {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+.greeting-header h3 {
     font-family: var(--font-primary);
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.birthday-decoration {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
+.birthday-date {
+    font-size: 1.1rem;
+    color: var(--white);
+    opacity: 0.8;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
-.emoji {
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-}
-
-.emoji:nth-child(1) { animation-delay: 0s; }
-.emoji:nth-child(2) { animation-delay: 0.2s; }
-.emoji:nth-child(3) { animation-delay: 0.4s; }
-.emoji:nth-child(4) { animation-delay: 0.6s; }
-.emoji:nth-child(5) { animation-delay: 0.8s; }
-
-.wishes-content {
+/* Greeting Content */
+.greeting-content {
+    padding: 50px 40px;
     color: var(--white);
 }
 
-.wishes-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    opacity: 0.9;
+/* Wishes Grid */
+.wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
-.wishes-signature {
-    margin-top: 40px;
+.wish-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.wish-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.wish-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--rose-gradient);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+}
+
+.wish-icon i {
+    font-size: 1.3rem;
+    color: var(--white);
+}
+
+.wish-content h4 {
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.wish-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Main Birthday Message */
+.main-birthday-message {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.message-quote {
+    position: relative;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quote-mark {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--primary-gold);
+    opacity: 0.3;
+}
+
+.quote-mark:first-child {
+    top: 15px;
+    left: 20px;
+}
+
+.quote-mark:last-child {
+    bottom: 15px;
+    right: 20px;
+}
+
+.message-quote blockquote {
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
     font-style: italic;
+    color: var(--white);
+    line-height: 1.7;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Special Wishes */
+.special-wishes {
+    margin: 40px 0;
+}
+
+.wish-blessing {
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wish-blessing h4 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.wish-blessing p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Wishes Signature */
+.wishes-signature {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signature-line {
+    width: 100px;
+    height: 2px;
+    background: var(--gold-gradient);
+    margin: 0 auto 25px;
+    border-radius: 2px;
+}
+
+.signature-content {
+    position: relative;
+}
+
+.signature-text {
+    font-size: 1rem;
+    color: var(--white);
+    opacity: 0.8;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.signature-name {
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+}
+
+.signature-heart {
+    font-size: 1.5rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Floating Birthday Hearts */
+.floating-birthday-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-birthday-hearts .floating-heart {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatBirthdayHeart 8s infinite linear;
+    opacity: 0.6;
+}
+
+.floating-birthday-hearts .floating-heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-birthday-hearts .floating-heart:nth-child(2) {
+    left: 25%;
+    animation-delay: 1.5s;
+}
+
+.floating-birthday-hearts .floating-heart:nth-child(3) {
+    left: 40%;
+    animation-delay: 3s;
+}
+
+.floating-birthday-hearts .floating-heart:nth-child(4) {
+    left: 55%;
+    animation-delay: 4.5s;
+}
+
+.floating-birthday-hearts .floating-heart:nth-child(5) {
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.floating-birthday-hearts .floating-heart:nth-child(6) {
+    left: 85%;
+    animation-delay: 7.5s;
+}
+
+@keyframes floatBirthdayHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* Footer */
@@ -1077,14 +1594,51 @@ body {
     font-weight: 600;
 }
 
-/* Responsive Design */
+/* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
+    /* Navigation */
+    .premium-nav {
+        padding: 10px 0;
     }
     
-    .section-title {
-        font-size: 2.5rem;
+    .brand-text {
+        font-size: 1.3rem;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0 10px;
+        font-size: 0.95rem;
+        padding: 8px 15px;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        min-height: 90vh;
+        padding: 80px 0 40px;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 25px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 35px;
+        line-height: 1.5;
+    }
+    
+    .birthday-badge {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+    
+    .hero-buttons .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+        min-height: 44px;
     }
     
     .main-image {
@@ -1092,26 +1646,428 @@ body {
         height: 250px;
     }
     
+    .hero-image {
+        height: 400px;
+        margin-top: 30px;
+    }
+    
+    /* Hide floating cards on tablets */
     .floating-card {
         display: none;
+    }
+    
+    /* Sections */
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    /* Message Section */
+    .message-section {
+        padding: 60px 0;
+    }
+    
+    .card-header {
+        padding: 30px;
+    }
+    
+    .card-header h3 {
+        font-size: 2rem;
+    }
+    
+    .header-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .header-icon i {
+        font-size: 1.5rem;
     }
     
     .card-body {
         padding: 30px;
     }
     
-    .wishes-card {
+    .message-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+    
+    .signature {
+        font-size: 1.3rem;
+    }
+    
+    /* Enhanced Reasons Section */
+    .reasons-section {
+        padding: 60px 0;
+    }
+    
+    .header-decoration {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .decoration-heart {
+        font-size: 1.2rem;
+    }
+    
+    .decoration-line {
+        width: 40px;
+    }
+    
+    
+    .reason-card {
+        margin-bottom: 20px;
+    }
+    
+    .card-number {
+        top: 15px;
+        right: 15px;
+        font-size: 1rem;
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        margin: 25px 25px 15px 25px;
+        border-radius: 15px;
+    }
+    
+    .featured-card .card-icon {
+        transform: scale(1.05);
+    }
+    
+    .card-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .card-content {
+        padding: 0 25px 25px 25px;
+    }
+    
+    .reason-card h4 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    .featured-card h4 {
+        font-size: 1.4rem;
+    }
+    
+    .reason-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    .featured-card p {
+        font-size: 0.95rem;
+    }
+    
+    
+    .love-quote {
+        padding: 35px 25px;
+    }
+    
+    .quote-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    
+    .quote-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .love-quote blockquote {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .author-name {
+        font-size: 1.1rem;
+    }
+    
+    .author-heart {
+        font-size: 1rem;
+    }
+    
+    /* Memories Section */
+    .memories-section {
+        padding: 60px 0;
+    }
+    
+    .memory-card {
+        margin-bottom: 20px;
+    }
+    
+    .memory-image {
+        height: 180px;
+    }
+    
+    .memory-content {
+        padding: 20px;
+    }
+    
+    .memory-content h5 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .memory-content p {
+        font-size: 0.9rem;
+    }
+    
+    /* Background Section */
+    .background-section {
+        padding: 60px 0;
+        min-height: 80vh;
+    }
+    
+    .background-content {
+        /* No padding needed for text-only design */
+    }
+    
+    .background-content h2 {
+        font-size: 2.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .background-text {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .header-ornament {
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .ornament-line {
+        width: 60px;
+    }
+    
+    .ornament-heart {
+        font-size: 1.5rem;
+    }
+    
+    .greeting-header {
+        padding: 40px 30px 30px;
+    }
+    
+    .birthday-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    
+    .birthday-icon i {
+        font-size: 2rem;
+    }
+    
+    .greeting-header h3 {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .birthday-date {
+        font-size: 1rem;
+    }
+    
+    .greeting-content {
         padding: 40px 30px;
+    }
+    
+    .wishes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .wish-item {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .wish-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+    }
+    
+    .wish-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .wish-content h4 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .wish-content p {
+        font-size: 0.9rem;
+    }
+    
+    .main-birthday-message {
+        margin: 40px 0;
+    }
+    
+    .message-quote {
+        padding: 30px 25px;
+    }
+    
+    .quote-mark {
+        font-size: 1.5rem;
+    }
+    
+    .quote-mark:first-child {
+        top: 10px;
+        left: 15px;
+    }
+    
+    .quote-mark:last-child {
+        bottom: 10px;
+        right: 15px;
+    }
+    
+    .message-quote blockquote {
+        font-size: 1.2rem;
+    }
+    
+    .special-wishes {
+        margin: 30px 0;
+    }
+    
+    .wish-blessing {
+        padding: 25px 20px;
+    }
+    
+    .wish-blessing h4 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .wish-blessing p {
+        font-size: 1rem;
+    }
+    
+    .wishes-signature {
+        padding: 30px;
+    }
+    
+    .signature-line {
+        width: 80px;
+        margin-bottom: 20px;
+    }
+    
+    .signature-text {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+    
+    .signature-name {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .signature-heart {
+        font-size: 1.3rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 30px 0;
+    }
+    
+    .footer-text {
+        font-size: 1rem;
+    }
+    
+    /* Scroll Indicator */
+    .scroll-indicator {
+        bottom: 20px;
+    }
+    
+    .scroll-arrow {
+        width: 45px;
+        height: 45px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .scroll-arrow i {
+        font-size: 1.1rem;
     }
 }
 
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.5rem;
+@media (max-width: 576px) {
+    /* Navigation */
+    .premium-nav {
+        padding: 8px 0;
     }
     
-    .section-title {
-        font-size: 2rem;
+    .brand-text {
+        font-size: 1.2rem;
+    }
+    
+    .navbar-toggler {
+        padding: 4px 8px;
+        font-size: 1rem;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .navbar-nav {
+        padding: 15px 0;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        min-height: 85vh;
+        padding: 70px 0 30px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        line-height: 1.4;
+    }
+    
+    .birthday-badge {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+    
+    .birthday-badge i {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons .btn {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+        min-height: 44px;
     }
     
     .main-image {
@@ -1119,12 +2075,389 @@ body {
         height: 200px;
     }
     
-    .card-body {
-        padding: 25px;
+    .hero-image {
+        height: 300px;
+        margin-top: 25px;
     }
     
-    .wishes-card {
+    /* Sections */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-header {
+        margin-bottom: 30px;
+    }
+    
+    /* Message Section */
+    .message-section {
+        padding: 50px 0;
+    }
+    
+    .card-header {
+        padding: 25px 20px;
+    }
+    
+    .card-header h3 {
+        font-size: 1.8rem;
+    }
+    
+    .header-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    
+    .header-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .card-body {
+        padding: 25px 20px;
+    }
+    
+    .message-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 18px;
+        text-align: left;
+    }
+    
+    .message-signature {
+        text-align: center;
+        margin-top: 25px;
+    }
+    
+    .signature {
+        font-size: 1.2rem;
+    }
+    
+    /* Reasons Section */
+    .reasons-section {
+        padding: 50px 0;
+    }
+    
+    .reason-card {
+        margin-bottom: 15px;
+    }
+    
+    .card-number {
+        top: 12px;
+        right: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        margin: 20px 20px 12px 20px;
+        border-radius: 12px;
+    }
+    
+    .featured-card .card-icon {
+        transform: scale(1.02);
+    }
+    
+    .card-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .card-content {
+        padding: 0 20px 20px 20px;
+    }
+    
+    .reason-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .featured-card h4 {
+        font-size: 1.3rem;
+    }
+    
+    .reason-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+    
+    .featured-card p {
+        font-size: 0.9rem;
+    }
+    
+    
+    .love-quote {
         padding: 30px 20px;
+    }
+    
+    .quote-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 18px;
+    }
+    
+    .quote-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .love-quote blockquote {
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+    }
+    
+    .author-name {
+        font-size: 1rem;
+    }
+    
+    .author-heart {
+        font-size: 0.9rem;
+    }
+    
+    /* Memories Section */
+    .memories-section {
+        padding: 50px 0;
+    }
+    
+    .memory-card {
+        margin-bottom: 15px;
+    }
+    
+    .memory-image {
+        height: 160px;
+    }
+    
+    .memory-content {
+        padding: 18px;
+    }
+    
+    .memory-content h5 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+    
+    .memory-content p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    /* Background Section */
+    .background-section {
+        padding: 50px 0;
+        min-height: 70vh;
+    }
+    
+    .background-content {
+        /* No padding needed for text-only design */
+    }
+    
+    .background-content h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .background-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+    
+    .background-signature {
+        margin-top: 30px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 25px 0;
+    }
+    
+    .footer-text {
+        font-size: 0.95rem;
+    }
+    
+    .footer-date {
+        font-size: 0.9rem;
+    }
+    
+    /* Scroll Indicator */
+    .scroll-indicator {
+        bottom: 15px;
+    }
+    
+    .scroll-arrow {
+        width: 40px;
+        height: 40px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .scroll-arrow i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .main-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .hero-image {
+        height: 280px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.6rem;
+    }
+    
+    .card-body {
+        padding: 20px 15px;
+    }
+    
+    .message-text {
+        font-size: 0.9rem;
+    }
+    
+    .reason-card {
+        margin-bottom: 12px;
+    }
+    
+    .card-number {
+        top: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        margin: 18px 18px 10px 18px;
+        border-radius: 10px;
+    }
+    
+    .featured-card .card-icon {
+        transform: scale(1.01);
+    }
+    
+    .card-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .card-content {
+        padding: 0 18px 18px 18px;
+    }
+    
+    .reason-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .featured-card h4 {
+        font-size: 1.2rem;
+    }
+    
+    .reason-card p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+    
+    .featured-card p {
+        font-size: 0.85rem;
+    }
+    
+    
+    .love-quote {
+        padding: 25px 18px;
+    }
+    
+    .quote-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 15px;
+    }
+    
+    .quote-icon i {
+        font-size: 1.1rem;
+    }
+    
+    .love-quote blockquote {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .author-name {
+        font-size: 0.9rem;
+    }
+    
+    .author-heart {
+        font-size: 0.8rem;
+    }
+    
+    .memory-image {
+        height: 140px;
+    }
+    
+    .memory-content {
+        padding: 15px;
+    }
+    
+    .memory-content h5 {
+        font-size: 1rem;
+    }
+    
+    .memory-content p {
+        font-size: 0.8rem;
+    }
+    
+    .background-content {
+        /* No padding needed for text-only design */
+    }
+    
+    .background-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .background-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .navbar-nav .nav-link {
+        padding: 12px 20px;
+        margin: 2px 0;
+    }
+    
+    .hero-buttons .btn {
+        padding: 15px 35px;
+        min-height: 50px;
+    }
+    
+    .scroll-arrow {
+        width: 50px;
+        height: 50px;
     }
 }
 

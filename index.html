@@ -32,17 +32,6 @@
         </div>
     </div>
 
-    <!-- Floating Elements -->
-    <div class="floating-elements">
-        <div class="floating-heart">💖</div>
-        <div class="floating-heart">💕</div>
-        <div class="floating-heart">💗</div>
-        <div class="floating-heart">💝</div>
-        <div class="floating-heart">💘</div>
-        <div class="floating-heart">💞</div>
-        <div class="floating-heart">💓</div>
-        <div class="floating-heart">💟</div>
-    </div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top premium-nav">
@@ -106,6 +95,10 @@
                                 <div class="main-image">
                                     <!-- Replace this with Siya's main photo -->
                                     <img src="images/siya-main.png" alt="Beautiful Siya" class="hero-photo">
+                                    <div class="image-placeholder" style="display: none;">
+                                        <i class="fas fa-image"></i>
+                                        <span>Loading Siya's Photo...</span>
+                                    </div>
                                 </div>
                                 <div class="floating-card card-1">
                                     <i class="fas fa-star"></i>
@@ -152,7 +145,7 @@
                             <div class="message-content">
                                 <p class="message-text">
                                     On this magical day, September 19th, I want to celebrate the most extraordinary person 
-                                    who has graced my life with love, laughter, and endless joy. Siya, you are not just 
+                                    who has graced my life with love, laughter, and endless joy. Chellom, you are not just 
                                     another year older today – you are another year more amazing, more beautiful, and more 
                                     incredible than ever before.
                                 </p>
@@ -166,7 +159,7 @@
                                 <p class="message-text">
                                     As you embark on this new chapter of your life, I wish you endless adventures, 
                                     boundless happiness, and all the love your beautiful heart can hold. You deserve 
-                                    the world and so much more, my darling Siya.
+                                    the world and so much more, my darling .
                                 </p>
                             </div>
                             <div class="message-signature">
@@ -183,65 +176,121 @@
     <!-- Love Reasons Section -->
     <section class="reasons-section">
         <div class="container">
+            <!-- Section Header -->
             <div class="row">
                 <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 class="section-title">Why You Mean Everything to Me</h2>
-                    <p class="section-subtitle">The countless reasons I love you</p>
+                    <div class="reasons-header">
+                        <div class="header-decoration">
+                            <span class="decoration-heart">💖</span>
+                            <span class="decoration-line"></span>
+                            <span class="decoration-heart">💕</span>
+                        </div>
+                        <h2 class="section-title">Why You Mean Everything to Me</h2>
+                        <p class="section-subtitle">The countless reasons that make you the most precious person in my life</p>
+                    </div>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                    <div class="reason-card">
-                        <div class="card-icon">
-                            <i class="fas fa-heart"></i>
+
+            <!-- Main Reasons Grid -->
+            <div class="reasons-grid">
+                <!-- Row 1: Top 3 Reasons -->
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <div class="reason-card featured-card">
+                            <div class="card-number">01</div>
+                            <div class="card-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Your Beautiful Heart</h4>
+                                <p>Your kindness and compassion touch everyone around you. You have the most beautiful soul I've ever known, and it shines through in everything you do.</p>
+                            </div>
                         </div>
-                        <h4>Your Beautiful Heart</h4>
-                        <p>Your kindness and compassion touch everyone around you. You have the most beautiful soul I've ever known.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="reason-card featured-card">
+                            <div class="card-number">02</div>
+                            <div class="card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Your Brilliant Mind</h4>
+                                <p>Your intelligence and wisdom never cease to amaze me. You see the world in such a beautiful way that it inspires me every single day.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="reason-card featured-card">
+                            <div class="card-number">03</div>
+                            <div class="card-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Your Radiant Energy</h4>
+                                <p>You bring sunshine wherever you go. Your positive energy is infectious and makes everything better, brighter, and more beautiful.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="reason-card">
-                        <div class="card-icon">
-                            <i class="fas fa-star"></i>
+
+                <!-- Row 2: Bottom 3 Reasons -->
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <div class="reason-card">
+                            <div class="card-number">04</div>
+                            <div class="card-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Your Unique Spirit</h4>
+                                <p>You are one of a kind, Siya. Your uniqueness is what makes you so special and irreplaceable in my heart.</p>
+                            </div>
                         </div>
-                        <h4>Your Brilliant Mind</h4>
-                        <p>Your intelligence and wisdom never cease to amaze me. You see the world in such a beautiful way.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                        <div class="reason-card">
+                            <div class="card-number">05</div>
+                            <div class="card-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Your Endless Love</h4>
+                                <p>The love you give is pure and unconditional. It's the greatest gift anyone could ever receive, and I treasure it every day.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                        <div class="reason-card">
+                            <div class="card-number">06</div>
+                            <div class="card-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>You're My Queen</h4>
+                                <p>You reign over my heart with grace and beauty. You are my everything, my world, my universe, and my greatest blessing.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                    <div class="reason-card">
-                        <div class="card-icon">
-                            <i class="fas fa-sun"></i>
+            </div>
+
+            <!-- Bottom Quote Section -->
+            <div class="row mt-5">
+                <div class="col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
+                    <div class="love-quote">
+                        <div class="quote-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <blockquote>
+                                "In a world full of temporary things, you are a permanent feeling. 
+                                Every reason I love you is a reason to celebrate life itself."
+                            </blockquote>
+                            <div class="quote-author">
+                                <span class="author-name">Your Forever Valentine</span>
+                                <span class="author-heart">❤️</span>
+                            </div>
                         </div>
-                        <h4>Your Radiant Energy</h4>
-                        <p>You bring sunshine wherever you go. Your positive energy is infectious and makes everything better.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <div class="reason-card">
-                        <div class="card-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h4>Your Unique Spirit</h4>
-                        <p>You are one of a kind, Siya. Your uniqueness is what makes you so special and irreplaceable.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                    <div class="reason-card">
-                        <div class="card-icon">
-                            <i class="fas fa-infinity"></i>
-                        </div>
-                        <h4>Your Endless Love</h4>
-                        <p>The love you give is pure and unconditional. It's the greatest gift anyone could ever receive.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-                    <div class="reason-card">
-                        <div class="card-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h4>You're My Queen</h4>
-                        <p>You reign over my heart with grace and beauty. You are my everything, my world, my universe.</p>
                     </div>
                 </div>
             </div>
@@ -263,6 +312,10 @@
                         <div class="memory-image">
                             <!-- Replace with your first date photo -->
                             <img src="images/siya-main.png" alt="First Date" class="memory-photo">
+                            <div class="image-placeholder" style="display: none;">
+                                <i class="fas fa-heart"></i>
+                                <span>Loading Memory...</span>
+                            </div>
                         </div>
                         <div class="memory-content">
                             <h5>The Beginning</h5>
@@ -284,6 +337,11 @@
                                 <img src="images/siya-main.png" alt="Golden Moment 4" class="floating-image floating-4">
                                 <img src="images/siya-main.png" alt="Golden Moment 5" class="floating-image floating-5">
                                 <img src="images/siya-main.png" alt="Golden Moment 6" class="floating-image floating-6">
+                            </div>
+                            
+                            <div class="image-placeholder" style="display: none;">
+                                <i class="fas fa-star"></i>
+                                <span>Loading Golden Times...</span>
                             </div>
                         </div>
                         <div class="memory-content">
@@ -307,6 +365,11 @@
                                 <img src="images/siya-main.png" alt="Adventure 5" class="floating-image floating-5">
                                 <img src="images/siya-main.png" alt="Adventure 6" class="floating-image floating-6">
                             </div>
+                            
+                            <div class="image-placeholder" style="display: none;">
+                                <i class="fas fa-mountain"></i>
+                                <span>Loading Adventures...</span>
+                            </div>
                         </div>
                         <div class="memory-content">
                             <h5>Our Adventures</h5>
@@ -319,6 +382,10 @@
                         <div class="memory-image">
                             <!-- Replace with a recent photo -->
                             <img src="images/siya-main.png" alt="Recent Photo" class="memory-photo">
+                            <div class="image-placeholder" style="display: none;">
+                                <i class="fas fa-camera"></i>
+                                <span>Loading Recent Photo...</span>
+                            </div>
                         </div>
                         <div class="memory-content">
                             <h5>Forever & Always</h5>
@@ -330,37 +397,14 @@
         </div>
     </section>
 
-    <!-- Final Wishes Section -->
-    <section id="wishes" class="wishes-section">
+    <!-- New Background Section -->
+    <section id="wishes" class="background-section">
+        <div class="background-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="wishes-card" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="wishes-header">
-                            <h2>Happy Birthday, Siya! 🎂</h2>
-                            <div class="birthday-decoration">
-                                <span class="emoji">🎉</span>
-                                <span class="emoji">🎈</span>
-                                <span class="emoji">🎁</span>
-                                <span class="emoji">💕</span>
-                                <span class="emoji">🌟</span>
-                            </div>
-                        </div>
-                        <div class="wishes-content">
-                            <p class="wishes-text">
-                                May this new year of your life be filled with incredible adventures, 
-                                boundless joy, and all the happiness your beautiful heart deserves. 
-                                You are my sunshine, my inspiration, and my greatest love.
-                            </p>
-                            <p class="wishes-text">
-                                Here's to another year of making beautiful memories together, 
-                                growing stronger in love, and creating magic in every moment we share.
-                            </p>
-                            <div class="wishes-signature">
-                                <p>With infinite love and endless admiration,</p>
-                                <p class="signature">Your Forever Valentine ❤️</p>
-                            </div>
-                        </div>
+                    <div class="background-content" data-aos="fade-up" data-aos-duration="1000">
+                        <h2>I Love You deee</h2>
                     </div>
                 </div>
             </div>
