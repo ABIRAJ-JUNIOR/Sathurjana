@@ -1,5 +1,3 @@
-// Premium Birthday Website JavaScript
-
 // Loading Screen Functionality
 function initLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
