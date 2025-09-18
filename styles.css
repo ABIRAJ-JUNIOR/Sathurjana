@@ -104,21 +104,6 @@
     position: relative;
 }
 
-.loading-subtitle {
-    margin-top: 30px;
-    opacity: 0;
-    animation: subtitleFadeIn 1.5s ease-out 2s forwards;
-}
-
-.loading-subtitle p {
-    font-family: var(--font-secondary);
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
-    letter-spacing: 1px;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    margin: 0;
-}
 
 @keyframes subtitleFadeIn {
     0% {
@@ -1953,7 +1938,7 @@ body {
 
 /* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
-    /* Navigation */
+    /* Navigation - Hide on mobile */
     .premium-nav {
         padding: 10px 0;
     }
@@ -1962,10 +1947,12 @@ body {
         font-size: 1.3rem;
     }
     
-    .navbar-nav .nav-link {
-        margin: 0 10px;
-        font-size: 0.95rem;
-        padding: 8px 15px;
+    .navbar-nav {
+        display: none !important;
+    }
+    
+    .navbar-toggler {
+        display: none !important;
     }
     
     /* Hero Section */

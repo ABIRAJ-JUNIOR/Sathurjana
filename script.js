@@ -15,7 +15,7 @@ function initLoadingScreen() {
                 // Initialize the rest of the website after loading screen is hidden
                 initWebsite();
             }, 800); // Match the CSS transition duration
-        }, 3000); // 3 seconds
+        }, 4000); // 4 seconds
     } else {
         // If no loading screen, initialize website immediately
         initWebsite();
@@ -557,9 +557,3 @@ function initImageLoading() {
 document.addEventListener('DOMContentLoaded', () => {
     initLoadingScreen();
 });
-
-// Console message
-console.log('🎉 Premium Birthday Website for Siya Loaded Successfully! 💕');
-console.log('✨ Made with love and modern web technologies ✨');
-console.log('📸 To add Siya\'s photos, place them in the images/ folder');
-console.log('📖 Check images/README.md for detailed instructions');
