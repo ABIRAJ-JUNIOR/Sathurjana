@@ -1197,6 +1197,19 @@ body {
     background: var(--white);
 }
 
+/* Enhanced grid layout for better mobile experience */
+.memories-section .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+/* Improved memory card spacing */
+.memories-section .col-lg-3,
+.memories-section .col-md-6,
+.memories-section .col-sm-6 {
+    margin-bottom: 1.5rem;
+}
+
 .memory-card {
     background: var(--white);
     border-radius: 25px;
@@ -1204,6 +1217,16 @@ body {
     box-shadow: var(--shadow-soft);
     transition: var(--transition-bounce);
     height: 100%;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Focus styles for accessibility */
+.memory-card:focus {
+    outline: 3px solid var(--primary-gold);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-medium), 0 0 0 3px rgba(212, 175, 55, 0.3);
 }
 
 .memory-card:hover {
@@ -1212,7 +1235,7 @@ body {
 }
 
 .memory-image {
-    height: 200px;
+    height: 280px;
     background: var(--purple-gradient);
     display: flex;
     align-items: center;
@@ -1255,8 +1278,8 @@ body {
 
 .floating-image {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--white);
@@ -1268,38 +1291,38 @@ body {
 
 /* Floating image positions */
 .floating-1 {
-    top: -30px;
-    left: 20px;
+    top: -40px;
+    left: 15px;
     animation-delay: 0.1s;
 }
 
 .floating-2 {
-    top: 10px;
-    right: -30px;
+    top: 5px;
+    right: -40px;
     animation-delay: 0.2s;
 }
 
 .floating-3 {
-    bottom: -30px;
-    left: 30px;
+    bottom: -40px;
+    left: 25px;
     animation-delay: 0.3s;
 }
 
 .floating-4 {
-    top: 30px;
-    left: -30px;
+    top: 25px;
+    left: -40px;
     animation-delay: 0.4s;
 }
 
 .floating-5 {
-    bottom: 20px;
-    right: -20px;
+    bottom: 15px;
+    right: -25px;
     animation-delay: 0.5s;
 }
 
 .floating-6 {
-    top: -20px;
-    right: 20px;
+    top: -25px;
+    right: 15px;
     animation-delay: 0.6s;
 }
 
@@ -2150,24 +2173,39 @@ body {
     }
     
     .memory-card {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        border-radius: 20px;
     }
     
     .memory-image {
-        height: 180px;
+        height: 220px;
     }
     
     .memory-content {
-        padding: 20px;
+        padding: 25px 20px;
     }
     
     .memory-content h5 {
-        font-size: 1.2rem;
-        margin-bottom: 8px;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: 600;
     }
     
     .memory-content p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Enhanced floating images for mobile */
+    .floating-image {
+        width: 65px;
+        height: 65px;
+        border: 2px solid var(--white);
+    }
+    
+    /* Touch-friendly hover effects */
+    .memory-card:active {
+        transform: translateY(-5px);
     }
     
     /* Background Section */
@@ -2567,25 +2605,40 @@ body {
     }
     
     .memory-card {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        border-radius: 18px;
     }
     
     .memory-image {
-        height: 160px;
+        height: 200px;
     }
     
     .memory-content {
-        padding: 18px;
+        padding: 20px 18px;
     }
     
     .memory-content h5 {
-        font-size: 1.1rem;
-        margin-bottom: 6px;
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        font-weight: 600;
     }
     
     .memory-content p {
-        font-size: 0.85rem;
-        line-height: 1.3;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Smaller floating images for small screens */
+    .floating-image {
+        width: 55px;
+        height: 55px;
+        border: 2px solid var(--white);
+    }
+    
+    /* Enhanced touch interactions */
+    .memory-card:active {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
     
     /* Background Section */
@@ -2645,7 +2698,7 @@ body {
     .image-container {
         position: relative;
         width: 100%;
-        height: 65%;
+        height: 100%;
     }
 }
 
@@ -2770,19 +2823,34 @@ body {
     }
     
     .memory-image {
-        height: 140px;
+        height: 180px;
     }
     
     .memory-content {
-        padding: 15px;
+        padding: 18px 15px;
     }
     
     .memory-content h5 {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
     }
     
     .memory-content p {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    /* Even smaller floating images for very small screens */
+    .floating-image {
+        width: 50px;
+        height: 50px;
+        border: 2px solid var(--white);
+    }
+    
+    /* Optimized touch interactions for small screens */
+    .memory-card:active {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     }
     
     .background-content {
@@ -2813,6 +2881,30 @@ body {
     .scroll-arrow {
         width: 50px;
         height: 50px;
+    }
+    
+    /* Enhanced touch interactions for memory cards */
+    .memory-card {
+        transition: all 0.2s ease;
+    }
+    
+    .memory-card:active {
+        transform: translateY(-8px) scale(0.98);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Improved floating image interactions on touch */
+    .golden-times-card:active .floating-image,
+    .adventures-card:active .floating-image {
+        opacity: 1;
+        transform: scale(1);
+        animation: none;
+    }
+    
+    /* Better touch targets */
+    .memory-content h5,
+    .memory-content p {
+        padding: 5px 0;
     }
 }
 
